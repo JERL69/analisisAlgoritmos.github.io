@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PseudocódigoA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('fondo2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        h1 {
+            font-family: 'Lobster', cursive;
+            margin-bottom: 50px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        pre {
+            background-color: black;
+            color: lime;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PseudocódigoA</h1>
+    <div class="content">
+        <h2>1. Logística de Reparto</h2>
+        <pre>
+Inicio
+    // Cargar ubicaciones de los puntos de entrega y el almacén
+    Definir ubicaciones Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir distanciaTotal Como Entero
+
+    // Seleccionar el almacén como punto inicial
+    puntoActual <- ubicaciones[0]
+    ruta <- [puntoActual]
+    distanciaTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(ubicaciones) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, ubicaciones, ruta)
+        distanciaTotal <- distanciaTotal + Distancia(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar al almacén
+    distanciaTotal <- distanciaTotal + Distancia(puntoActual, ubicaciones[0])
+    ruta <- ruta + [ubicaciones[0]]
+
+    // Mostrar la ruta y la distancia total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Distancia total: ", distanciaTotal
+Fin
+        </pre>
+        
+        <h2>2. Planificación de Rutas de Autobuses Escolares</h2>
+        <pre>
+Inicio
+    // Cargar paradas y la escuela como punto de partida
+    Definir paradas Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir distanciaTotal Como Entero
+
+    // Seleccionar la escuela como punto inicial
+    puntoActual <- paradas[0]
+    ruta <- [puntoActual]
+    distanciaTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(paradas) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, paradas, ruta)
+        distanciaTotal <- distanciaTotal + Distancia(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar a la escuela
+    distanciaTotal <- distanciaTotal + Distancia(puntoActual, paradas[0])
+    ruta <- ruta + [paradas[0]]
+
+    // Mostrar la ruta y la distancia total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Distancia total: ", distanciaTotal
+Fin
+        </pre>
+
+        <h2>3. Turismo: Diseño de Itinerarios</h2>
+        <pre>
+Inicio
+    // Cargar atracciones y el hotel como punto de partida
+    Definir atracciones Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir distanciaTotal Como Entero
+
+    // Seleccionar el hotel como punto inicial
+    puntoActual <- atracciones[0]
+    ruta <- [puntoActual]
+    distanciaTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(atracciones) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, atracciones, ruta)
+        distanciaTotal <- distanciaTotal + Distancia(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar al hotel
+    distanciaTotal <- distanciaTotal + Distancia(puntoActual, atracciones[0])
+    ruta <- ruta + [atracciones[0]]
+
+    // Mostrar la ruta y la distancia total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Distancia total: ", distanciaTotal
+Fin
+        </pre>
+
+        <h2>4. Manufactura: Optimización de Movimientos de Máquinas</h2>
+        <pre>
+Inicio
+    // Cargar puntos de perforación y la posición inicial del brazo robótico
+    Definir puntos Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir tiempoTotal Como Entero
+
+    // Seleccionar la posición inicial como punto inicial
+    puntoActual <- puntos[0]
+    ruta <- [puntoActual]
+    tiempoTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(puntos) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, puntos, ruta)
+        tiempoTotal <- tiempoTotal + Tiempo(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar a la posición inicial
+    tiempoTotal <- tiempoTotal + Tiempo(puntoActual, puntos[0])
+    ruta <- ruta + [puntos[0]]
+
+    // Mostrar la ruta y el tiempo total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Tiempo total: ", tiempoTotal
+Fin
+        </pre>
+
+        <h2>5. Recolección de Basura</h2>
+        <pre>
+Inicio
+    // Cargar puntos de recolección y el vertedero como punto de partida
+    Definir puntos Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir distanciaTotal Como Entero
+
+    // Seleccionar el vertedero como punto inicial
+    puntoActual <- puntos[0]
+    ruta <- [puntoActual]
+    distanciaTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(puntos) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, puntos, ruta)
+        distanciaTotal <- distanciaTotal + Distancia(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar al vertedero
+    distanciaTotal <- distanciaTotal + Distancia(puntoActual, puntos[0])
+    ruta <- ruta + [puntos[0]]
+
+    // Mostrar la ruta y la distancia total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Distancia total: ", distanciaTotal
+Fin
+        </pre>
+
+        <h2>6. Distribución de Productos Farmacéuticos</h2>
+        <pre>
+Inicio
+    // Cargar farmacias y el centro de distribución como punto de partida
+    Definir farmacias Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir distanciaTotal Como Entero
+
+    // Seleccionar el centro de distribución como punto inicial
+    puntoActual <- farmacias[0]
+    ruta <- [puntoActual]
+    distanciaTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(farmacias) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, farmacias, ruta)
+        distanciaTotal <- distanciaTotal + Distancia(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar al centro de distribución
+    distanciaTotal <- distanciaTotal + Distancia(puntoActual, farmacias[0])
+    ruta <- ruta + [farmacias[0]]
+
+    // Mostrar la ruta y la distancia total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Distancia total: ", distanciaTotal
+Fin
+        </pre>
+
+        <h2>7. Instalación de Fibra Óptica</h2>
+        <pre>
+Inicio
+    // Cargar nodos y el punto de partida
+    Definir nodos Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir distanciaTotal Como Entero
+
+    // Seleccionar el punto de partida como punto inicial
+    puntoActual <- nodos[0]
+    ruta <- [puntoActual]
+    distanciaTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(nodos) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, nodos, ruta)
+        distanciaTotal <- distanciaTotal + Distancia(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar al punto de partida
+    distanciaTotal <- distanciaTotal + Distancia(puntoActual, nodos[0])
+    ruta <- ruta + [nodos[0]]
+
+    // Mostrar la ruta y la distancia total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Distancia total: ", distanciaTotal
+Fin
+        </pre>
+
+        <h2>8. Planificación de Rutas de Vendedores Ambulantes</h2>
+        <pre>
+Inicio
+    // Cargar mercados y el punto de partida del vendedor
+    Definir mercados Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir distanciaTotal Como Entero
+
+    // Seleccionar el punto de partida como punto inicial
+    puntoActual <- mercados[0]
+    ruta <- [puntoActual]
+    distanciaTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(mercados) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, mercados, ruta)
+        distanciaTotal <- distanciaTotal + Distancia(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar al punto de partida
+    distanciaTotal <- distanciaTotal + Distancia(puntoActual, mercados[0])
+    ruta <- ruta + [mercados[0]]
+
+    // Mostrar la ruta y la distancia total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Distancia total: ", distanciaTotal
+Fin
+        </pre>
+
+        <h2>9. Astronomía: Movimiento de Telescopios</h2>
+        <pre>
+Inicio
+    // Cargar objetivos de observación y la posición inicial del telescopio
+    Definir objetivos Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir tiempoTotal Como Entero
+
+    // Seleccionar la posición inicial como punto inicial
+    puntoActual <- objetivos[0]
+    ruta <- [puntoActual]
+    tiempoTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(objetivos) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, objetivos, ruta)
+        tiempoTotal <- tiempoTotal + Tiempo(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar a la posición inicial
+    tiempoTotal <- tiempoTotal + Tiempo(puntoActual, objetivos[0])
+    ruta <- ruta + [objetivos[0]]
+
+    // Mostrar la ruta y el tiempo total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Tiempo total: ", tiempoTotal
+Fin
+        </pre>
+
+        <h2>10. Diseño de Circuitos Electrónicos</h2>
+        <pre>
+Inicio
+    // Cargar puntos de soldadura y la posición inicial de la máquina
+    Definir puntos Como Lista de Puntos
+    Definir ruta Como Lista de Puntos
+    Definir tiempoTotal Como Entero
+
+    // Seleccionar la posición inicial como punto inicial
+    puntoActual <- puntos[0]
+    ruta <- [puntoActual]
+    tiempoTotal <- 0
+
+    // Construir la ruta usando el vecino más cercano
+    Mientras longitud(ruta) < longitud(puntos) Hacer
+        vecinoMasCercano <- EncontrarVecinoMasCercano(puntoActual, puntos, ruta)
+        tiempoTotal <- tiempoTotal + Tiempo(puntoActual, vecinoMasCercano)
+        puntoActual <- vecinoMasCercano
+        ruta <- ruta + [puntoActual]
+    FinMientras
+
+    // Regresar a la posición inicial
+    tiempoTotal <- tiempoTotal + Tiempo(puntoActual, puntos[0])
+    ruta <- ruta + [puntos[0]]
+
+    // Mostrar la ruta y el tiempo total
+    Escribir "Ruta óptima: ", ruta
+    Escribir "Tiempo total: ", tiempoTotal
+Fin
+        </pre>
+    </div>
+    
+    <div class="button-container">
+        <a href="index.html">Volver al inicio</a>
+    </div>
+</body>
+</html>

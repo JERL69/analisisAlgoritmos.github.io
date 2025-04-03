@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxGraphModel dx="1024" dy="768" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    
+    <!-- Inicio -->
+    <mxCell id="start" value="Inicio" style="ellipse;whiteSpace=wrap;fillColor=#D5E8D4" vertex="1" parent="1">
+      <mxGeometry x="200" y="50" width="100" height="50" as="geometry" />
+    </mxCell>
+    
+    <!-- Definir objetos -->
+    <mxCell id="define_objects" value="Definir pesos y valores" style="rounded=1;whiteSpace=wrap;fillColor=#FFF2CC" vertex="1" parent="1">
+      <mxGeometry x="200" y="120" width="180" height="60" as="geometry" />
+    </mxCell>
+    
+    <!-- Bucle i -->
+    <mxCell id="loop_i" value="i = 1 a n" style="rhombus;whiteSpace=wrap;fillColor=#F8CECC" vertex="1" parent="1">
+      <mxGeometry x="200" y="200" width="120" height="80" as="geometry" />
+    </mxCell>
+    
+    <!-- Bucle j -->
+    <mxCell id="loop_j" value="j = 1 a capacidad" style="rhombus;whiteSpace=wrap;fillColor=#F8CECC" vertex="1" parent="1">
+      <mxGeometry x="200" y="300" width="120" height="80" as="geometry" />
+    </mxCell>
+    
+    <!-- Decisión: ¿Cabe en mochila? -->
+    <mxCell id="decision_fit" value="peso[i] ≤ j?" style="rhombus;whiteSpace=wrap;fillColor=#D5E8D4" vertex="1" parent="1">
+      <mxGeometry x="200" y="400" width="140" height="80" as="geometry" />
+    </mxCell>
+    
+    <!-- Sí: Actualizar tabla -->
+    <mxCell id="update_table" value="Actualizar tabla" style="rounded=1;whiteSpace=wrap;fillColor=#DAE8FC" vertex="1" parent="1">
+      <mxGeometry x="200" y="500" width="140" height="60" as="geometry" />
+    </mxCell>
+    
+    <!-- No: Mantener valor anterior -->
+    <mxCell id="keep_previous" value="Mantener valor anterior" style="rounded=1;whiteSpace=wrap;fillColor=#DAE8FC" vertex="1" parent="1">
+      <mxGeometry x="400" y="400" width="180" height="60" as="geometry" />
+    </mxCell>
+    
+    <!-- Incremento j -->
+    <mxCell id="increment_j" value="j = j + 1" style="rounded=1;whiteSpace=wrap;fillColor=#F5F5F5" vertex="1" parent="1">
+      <mxGeometry x="200" y="580" width="140" height="50" as="geometry" />
+    </mxCell>
+    
+    <!-- Incremento i -->
+    <mxCell id="increment_i" value="i = i + 1" style="rounded=1;whiteSpace=wrap;fillColor=#F5F5F5" vertex="1" parent="1">
+      <mxGeometry x="200" y="650" width="140" height="50" as="geometry" />
+    </mxCell>
+    
+    <!-- Fin -->
+    <mxCell id="end" value="Fin" style="ellipse;whiteSpace=wrap;fillColor=#D5E8D4" vertex="1" parent="1">
+      <mxGeometry x="200" y="720" width="100" height="50" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>

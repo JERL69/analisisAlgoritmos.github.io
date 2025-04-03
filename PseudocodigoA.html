@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PseudocódigoA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('fondo2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        h1 {
+            font-family: 'Lobster', cursive;
+            margin-bottom: 50px;
+        }
+        .content {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        pre {
+            background-color: black;
+            color: lime;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PseudocódigoA</h1>
+    <div class="content">
+        <h2>Ejemplo 1: Suma de dos números</h2>
+        <pre>
+Inicio
+    Escribir "Ingrese el primer número:"
+    Leer num1
+    Escribir "Ingrese el segundo número:"
+    Leer num2
+    suma <- num1 + num2
+    Escribir "La suma es: ", suma
+Fin
+        </pre>
+        
+        <h2>Ejemplo 2: Factorial de un número</h2>
+        <pre>
+Inicio
+    Definir n, factorial Como Entero
+    Escribir "Ingrese un número: "
+    Leer n
+    factorial <- 1
+    Para i <- 1 Hasta n Hacer
+        factorial <- factorial * i
+    FinPara
+    Escribir "El factorial es: ", factorial
+Fin
+        </pre>
+
+        <h2>Ejemplo 3: Implementación de Quicksort</h2>
+        <pre>
+Inicio Quicksort(lista, inicio, fin)
+    Si inicio < fin Entonces
+        pivote <- Particionar(lista, inicio, fin)
+        Quicksort(lista, inicio, pivote - 1)
+        Quicksort(lista, pivote + 1, fin)
+    FinSi
+Fin
+
+Funcion Particionar(lista, inicio, fin)
+    pivote <- lista[fin]
+    i <- inicio - 1
+    Para j <- inicio hasta fin - 1 Hacer
+        Si lista[j] <= pivote Entonces
+            i <- i + 1
+            Intercambiar lista[i] con lista[j]
+        FinSi
+    FinPara
+    Intercambiar lista[i + 1] con lista[fin]
+    Retornar i + 1
+FinFuncion
+        </pre>
+
+        <h2>Ejemplo 4: Implementación de Mergesort</h2>
+        <pre>
+Inicio Mergesort(lista)
+    Si longitud(lista) <= 1 Entonces
+        Retornar lista
+    FinSi
+    mitad <- longitud(lista) / 2
+    izquierda <- Mergesort(sublista(lista, 0, mitad))
+    derecha <- Mergesort(sublista(lista, mitad, longitud(lista)))
+    Retornar Mezclar(izquierda, derecha)
+Fin
+
+Funcion Mezclar(izquierda, derecha)
+    resultado <- []
+    Mientras izquierda no esté vacía Y derecha no esté vacía Hacer
+        Si izquierda[0] <= derecha[0] Entonces
+            Agregar izquierda[0] a resultado
+            Eliminar izquierda[0]
+        Sino
+            Agregar derecha[0] a resultado
+            Eliminar derecha[0]
+        FinSi
+    FinMientras
+    Concatenar resultado con izquierda y derecha
+    Retornar resultado
+FinFuncion
+        </pre>
+
+        <h2>Ejemplo 5: Implementación de BFS</h2>
+        <pre>
+Inicio BFS(grafo, nodo_inicial)
+    crear cola vacía
+    agregar nodo_inicial a la cola
+    marcar nodo_inicial como visitado
+    Mientras la cola no esté vacía Hacer
+        nodo <- extraer de la cola
+        Para cada vecino en lista_adyacencia(nodo) Hacer
+            Si vecino no ha sido visitado Entonces
+                marcar vecino como visitado
+                agregar vecino a la cola
+            FinSi
+        FinPara
+    FinMientras
+Fin
+        </pre>
+
+        <h2>Ejemplo 6: Implementación de DFS</h2>
+        <pre>
+Inicio DFS(grafo, nodo_inicial)
+    crear pila vacía
+    agregar nodo_inicial a la pila
+    marcar nodo_inicial como visitado
+    Mientras la pila no esté vacía Hacer
+        nodo <- extraer de la pila
+        Para cada vecino en lista_adyacencia(nodo) Hacer
+            Si vecino no ha sido visitado Entonces
+                marcar vecino como visitado
+                agregar vecino a la pila
+            FinSi
+        FinPara
+    FinMientras
+Fin
+        </pre>
+
+        <h2>Ejemplo 7: Comparación de búsqueda lineal y búsqueda binaria</h2>
+        <pre>
+Inicio BusquedaLineal(lista, objetivo)
+    Para i <- 0 hasta longitud(lista) - 1 Hacer
+        Si lista[i] == objetivo Entonces
+            Retornar i
+        FinSi
+    FinPara
+    Retornar -1
+Fin
+
+Inicio BusquedaBinaria(lista, objetivo)
+    inicio <- 0
+    fin <- longitud(lista) - 1
+    Mientras inicio <= fin Hacer
+        medio <- (inicio + fin) / 2
+        Si lista[medio] == objetivo Entonces
+            Retornar medio
+        Sino Si lista[medio] < objetivo Entonces
+            inicio <- medio + 1
+        Sino
+            fin <- medio - 1
+        FinSi
+    FinMientras
+    Retornar -1
+Fin
+        </pre>
+    </div>
+    
+    <div class="button-container">
+        <a href="index.html">Volver al inicio</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiagramaH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.4.0/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            font-family: 'Lobster', cursive;
+            margin-bottom: 20px;
+        }
+        .diagram-container {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diagramas de Flujo</h1>
+    
+    <div class="diagram-container">
+        <h2>1. Suma de dos números</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Leer num1]
+            B --> C[Leer num2]
+            C --> D[suma = num1 + num2]
+            D --> E[Escribir suma]
+            E --> F[Fin]
+        </pre>
+    </div>
+
+    <div class="diagram-container">
+        <h2>2. Quicksort</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Si inicio < fin]
+            B -->|Sí| C[Particionar lista]
+            C --> D[Llamar Quicksort izquierda]
+            D --> E[Llamar Quicksort derecha]
+            E --> F[Fin]
+            B -->|No| F
+        </pre>
+    </div>
+
+    <div class="diagram-container">
+        <h2>3. BFS en un grafo</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Crear cola vacía]
+            B --> C[Añadir nodo inicial]
+            C --> D[Marcar nodo como visitado]
+            D --> E[Mientras cola no esté vacía]
+            E -->|Sí| F[Extraer nodo]
+            F --> G[Para cada vecino no visitado]
+            G -->|Sí| H[Marcar y agregar a cola]
+            H --> E
+            G -->|No| I[Fin]
+        </pre>
+    </div>
+    
+    <div class="diagram-container">
+        <h2>4. Algoritmo de Dijkstra</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Inicializar distancias a infinito]
+            B --> C[Cola de prioridad con nodo inicial]
+            C --> D[Mientras cola no esté vacía]
+            D -->|Sí| E[Extraer nodo con menor distancia]
+            E --> F[Para cada vecino]
+            F -->|Sí| G[Actualizar distancia si es menor]
+            G --> H[Añadir a la cola]
+            H --> D
+            F -->|No| I[Fin]
+        </pre>
+    </div>
+
+    <div class="diagram-container">
+        <h2>5. Búsqueda Binaria</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Definir inicio y fin]
+            B --> C[Mientras inicio <= fin]
+            C -->|Sí| D[medio = (inicio + fin) / 2]
+            D --> E[Si lista[medio] == objetivo]
+            E -->|Sí| F[Retornar medio]
+            E -->|No| G[Si lista[medio] < objetivo]
+            G -->|Sí| H[inicio = medio + 1]
+            G -->|No| I[fin = medio - 1]
+            H --> C
+            I --> C
+            C -->|No| J[Retornar -1]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

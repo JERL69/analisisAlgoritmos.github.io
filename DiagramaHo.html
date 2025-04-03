@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama de Flujo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        :root {
+            --primary-color: #1E90FF;
+            --secondary-color: #FF4081;
+            --background-color: #121212;
+            --text-color: #E0E0E0;
+            --card-bg: #1E1E1E;
+            --border-color: #333;
+            --shadow-color: rgba(30, 144, 255, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 15px var(--shadow-color);
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .diagram {
+            margin-top: 2rem;
+        }
+
+        .mermaid {
+            background: #181818;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--secondary-color);
+            box-shadow: 0 0 15px rgba(255, 64, 129, 0.6);
+        }
+
+        .back-button {
+            display: block;
+            margin: 2rem auto 0;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Diagrama de Flujo</h1>
+        <div class="diagram">
+            <div class="mermaid">
+                graph TD;
+                    A[Inicio] --> B[Definir Puntos];
+                    B --> C[Inicializar Variables];
+                    C --> D[Elegir Punto de Inicio];
+                    D --> E{¿Todos Visitados?};
+                    E -- No --> F[Encontrar Punto Más Cercano];
+                    F --> G[Agregar al Recorrido];
+                    G --> E;
+                    E -- Sí --> H[Regresar al Inicio];
+                    H --> I[Calcular Distancia Total];
+                    I --> J[Mostrar Recorrido y Distancia];
+                    J --> K[Fin];
+            </div>
+        </div>
+        <a href="index.html" class="back-button">Volver al Inicio</a>
+    </div>
+</body>
+</html>

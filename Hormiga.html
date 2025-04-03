@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hormigas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2A4365;
+            --secondary-color: #63B3ED;
+            --text-color: #F7FAFC;
+            --overlay-color: rgba(42, 67, 101, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: url('Hormigas.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-color);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .card a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: block;
+            transition: color 0.3s ease;
+        }
+
+        .card a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .btn:hover {
+            background-color: #4299E1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hormigas</h1>
+        </header>
+
+        <div class="grid-container">
+            <div class="card">
+                <a href="PseudocodigoHo.html">
+                    <img src="pseudocodigo.png" alt="Pseudocódigo">
+                </a>
+                <a href="PseudocodigoH.html">Pseudocódigo</a>
+            </div>
+
+            <div class="card">
+                <a href="DiagramaHo.html">
+                    <img src="Diagrama.avif" alt="Diagrama">
+                </a>
+                <a href="DiagramaH.html">Diagramas</a>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="index.html" class="btn">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+</html>

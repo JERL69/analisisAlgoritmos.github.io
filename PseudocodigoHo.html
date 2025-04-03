@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudocódigo - Solución Óptima</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1E90FF;
+            --secondary-color: #FF4081;
+            --background-color: #121212;
+            --text-color: #E0E0E0;
+            --card-bg: #1E1E1E;
+            --border-color: #333;
+            --shadow-color: rgba(30, 144, 255, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 15px var(--shadow-color);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .pseudocode {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: #181818;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--secondary-color);
+            overflow-x: auto;
+        }
+
+        .back-button {
+            display: block;
+            margin: 2rem auto 0;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pseudocódigo Hormiga </h1>
+        <div class="pseudocode">
+<pre>
+Inicio
+    // Definir los puntos y sus coordenadas
+    Puntos = [(x1, y1), (x2, y2), ..., (xn, yn)]
+    Inicio = Puntos[0]  // Elegir un punto de inicio (puede ser cualquiera)
+
+    // Inicializar variables
+    Recorrido = []  // Almacenará el orden de los puntos visitados
+    Visitados = []   // Almacenará los puntos ya visitados
+    PuntoActual = Inicio
+    Visitados.append(PuntoActual)
+    Recorrido.append(PuntoActual)
+
+    // Construir el recorrido
+    Mientras longitud(Visitados) < longitud(Puntos):
+        // Encontrar el punto más cercano no visitado
+        PuntoCercano = EncontrarPuntoMasCercano(PuntoActual, Puntos, Visitados)
+        
+        // Agregar el punto más cercano al recorrido
+        Recorrido.append(PuntoCercano)
+        Visitados.append(PuntoCercano)
+        PuntoActual = PuntoCercano
+
+    // Regresar al punto de inicio
+    Recorrido.append(Inicio)
+
+    // Calcular la distancia total del recorrido
+    DistanciaTotal = CalcularDistanciaTotal(Recorrido)
+
+    // Mostrar resultados
+    Mostrar "Recorrido óptimo: ", Recorrido
+    Mostrar "Distancia total: ", DistanciaTotal
+Fin
+
+// Función para encontrar el punto más cercano no visitado
+Función EncontrarPuntoMasCercano(PuntoActual, Puntos, Visitados):
+    PuntoCercano = null
+    DistanciaMinima = infinito
+
+    Para cada Punto en Puntos:
+        Si Punto no está en Visitados:
+            Distancia = CalcularDistancia(PuntoActual, Punto)
+            Si Distancia < DistanciaMinima:
+                DistanciaMinima = Distancia
+                PuntoCercano = Punto
+
+    Retornar PuntoCercano
+
+// Función para calcular la distancia entre dos puntos
+Función CalcularDistancia(Punto1, Punto2):
+    dx = Punto2.x - Punto1.x
+    dy = Punto2.y - Punto1.y
+    Retornar sqrt(dx^2 + dy^2)
+
+// Función para calcular la distancia total del recorrido
+Función CalcularDistanciaTotal(Recorrido):
+    DistanciaTotal = 0
+    Para i desde 0 hasta longitud(Recorrido) - 2:
+        DistanciaTotal += CalcularDistancia(Recorrido[i], Recorrido[i+1])
+    Retornar DistanciaTotal
+</pre>
+        </div>
+        <a href="index.html" class="back-button">Volver al Inicio</a>
+    </div>
+</body>
+</html>

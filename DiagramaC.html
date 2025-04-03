@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama del Movimiento del Caballo</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .diagram {
+            background: white;
+            display: inline-block;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Diagrama de Flujo - Movimiento del Caballo</h1>
+
+    <div class="diagram">
+        <h2>Algoritmo de Búsqueda del Movimiento del Caballo</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Definir tablero y movimientos válidos];
+            B --> C[Establecer posición inicial del caballo];
+            C --> D[Marcar casilla inicial como visitada];
+            D --> E[Intentar mover el caballo a una nueva casilla];
+            E -->|¿Movimiento válido?| F{Sí};
+            E -->|No| G[Retroceder al último movimiento];
+            G --> E;
+            F --> H[Marcar casilla como visitada];
+            H --> I[¿Se han visitado todas las casillas?];
+            I -->|Sí| J[Mostrar solución];
+            I -->|No| E;
+            J --> K[Fin];
+        </pre>
+    </div>
+
+</body>
+</html>

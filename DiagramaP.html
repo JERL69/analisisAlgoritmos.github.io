@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiagramaH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.4.0/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            font-family: 'Lobster', cursive;
+            margin-bottom: 20px;
+        }
+        .diagram-container {
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .button-container {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .button-container a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: blue;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diagramas de Flujo</h1>
+    
+    <!-- Diagrama 1: Logística de Reparto -->
+    <div class="diagram-container">
+        <h2>1. Logística de Reparto</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar ubicaciones de entrega y almacén]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar almacén como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar distancia total]
+            G --> H{¿Todas las ubicaciones visitadas?}
+            H -->|No| E
+            H -->|Sí| I[Regresar al almacén]
+            I --> J[Mostrar ruta óptima y distancia total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 2: Planificación de Rutas de Autobuses Escolares -->
+    <div class="diagram-container">
+        <h2>2. Planificación de Rutas de Autobuses Escolares</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar paradas y escuela]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar escuela como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar distancia total]
+            G --> H{¿Todas las paradas visitadas?}
+            H -->|No| E
+            H -->|Sí| I[Regresar a la escuela]
+            I --> J[Mostrar ruta óptima y distancia total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 3: Turismo: Diseño de Itinerarios -->
+    <div class="diagram-container">
+        <h2>3. Turismo: Diseño de Itinerarios</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar atracciones y hotel]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar hotel como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar distancia total]
+            G --> H{¿Todas las atracciones visitadas?}
+            H -->|No| E
+            H -->|Sí| I[Regresar al hotel]
+            I --> J[Mostrar ruta óptima y distancia total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 4: Manufactura: Optimización de Movimientos de Máquinas -->
+    <div class="diagram-container">
+        <h2>4. Manufactura: Optimización de Movimientos de Máquinas</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar puntos de perforación y posición inicial]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar posición inicial como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar tiempo total]
+            G --> H{¿Todos los puntos perforados?}
+            H -->|No| E
+            H -->|Sí| I[Regresar a la posición inicial]
+            I --> J[Mostrar ruta óptima y tiempo total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 5: Recolección de Basura -->
+    <div class="diagram-container">
+        <h2>5. Recolección de Basura</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar puntos de recolección y vertedero]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar vertedero como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar distancia total]
+            G --> H{¿Todos los puntos recolectados?}
+            H -->|No| E
+            H -->|Sí| I[Regresar al vertedero]
+            I --> J[Mostrar ruta óptima y distancia total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 6: Distribución de Productos Farmacéuticos -->
+    <div class="diagram-container">
+        <h2>6. Distribución de Productos Farmacéuticos</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar farmacias y centro de distribución]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar centro de distribución como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar distancia total]
+            G --> H{¿Todas las farmacias visitadas?}
+            H -->|No| E
+            H -->|Sí| I[Regresar al centro de distribución]
+            I --> J[Mostrar ruta óptima y distancia total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 7: Instalación de Fibra Óptica -->
+    <div class="diagram-container">
+        <h2>7. Instalación de Fibra Óptica</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar nodos y punto de partida]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar punto de partida como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar distancia total]
+            G --> H{¿Todos los nodos visitados?}
+            H -->|No| E
+            H -->|Sí| I[Regresar al punto de partida]
+            I --> J[Mostrar ruta óptima y distancia total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 8: Planificación de Rutas de Vendedores Ambulantes -->
+    <div class="diagram-container">
+        <h2>8. Planificación de Rutas de Vendedores Ambulantes</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar mercados y punto de partida]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar punto de partida como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar distancia total]
+            G --> H{¿Todos los mercados visitados?}
+            H -->|No| E
+            H -->|Sí| I[Regresar al punto de partida]
+            I --> J[Mostrar ruta óptima y distancia total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 9: Astronomía: Movimiento de Telescopios -->
+    <div class="diagram-container">
+        <h2>9. Astronomía: Movimiento de Telescopios</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar objetivos y posición inicial]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar posición inicial como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar tiempo total]
+            G --> H{¿Todos los objetivos observados?}
+            H -->|No| E
+            H -->|Sí| I[Regresar a la posición inicial]
+            I --> J[Mostrar ruta óptima y tiempo total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Diagrama 10: Diseño de Circuitos Electrónicos -->
+    <div class="diagram-container">
+        <h2>10. Diseño de Circuitos Electrónicos</h2>
+        <pre class="mermaid">
+        graph TD;
+            A[Inicio] --> B[Cargar puntos de soldadura y posición inicial]
+            B --> C[Construir matriz de distancias]
+            C --> D[Seleccionar posición inicial como punto inicial]
+            D --> E[Encontrar vecino más cercano no visitado]
+            E --> F[Agregar vecino a la ruta]
+            F --> G[Actualizar tiempo total]
+            G --> H{¿Todos los puntos soldados?}
+            H -->|No| E
+            H -->|Sí| I[Regresar a la posición inicial]
+            I --> J[Mostrar ruta óptima y tiempo total]
+            J --> K[Fin]
+        </pre>
+    </div>
+
+    <!-- Botón de Volver al Inicio -->
+    <div class="button-container">
+        <a href="index.html">Volver al inicio</a>
+    </div>
+
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

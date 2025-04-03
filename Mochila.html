@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problema de la Mochila</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 600px; margin: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        button { margin-top: 10px; padding: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Problema de la Mochila (Greedy)</h1>
+        <table>
+            <tr>
+                <th>Objeto</th>
+                <th>Valor ($)</th>
+                <th>Peso (kg)</th>
+            </tr>
+            <tr><td>Guitarra 🎸</td><td>1500</td><td>1</td></tr>
+            <tr><td>Laptop 💻</td><td>2000</td><td>3</td></tr>
+            <tr><td>Radio 📻</td><td>3000</td><td>4</td></tr>
+            <tr><td>Teléfono 📱</td><td>2000</td><td>1</td></tr>
+            <tr><td>Anillo 💍</td><td>2500</td><td>0.5</td></tr>
+        </table>
+        <button onclick="resolverMochilaGreedy()">Calcular mejor combinación</button>
+        <h2>Resultado:</h2>
+        <p id="resultado"></p>
+    </div>
+    <script>
+        function knapsackGreedy(objetos, capacidadMaxima) {
+            objetos.sort((a, b) => (b.valor / b.peso) - (a.valor / a.peso));
+            let pesoTotal = 0;
+            let valorTotal = 0;
+            let seleccionados = [];
+
+            for (let obj of objetos) {
+                if (pesoTotal + obj.peso <= capacidadMaxima) {
+                    seleccionados.push(obj);
+                    pesoTotal += obj.peso;
+                    valorTotal += obj.valor;
+                }
+            }
+
+            return { valorTotal, pesoTotal, objetosSeleccionados: seleccionados };
+        }
+
+        function resolverMochilaGreedy() {
+            const capacidadMaxima = 10;
+            let objetos = [
+                { nombre: "Guitarra 🎸", valor: 1500, peso: 1 },
+                { nombre: "Laptop 💻", valor: 2000, peso: 3 },
+                { nombre: "Radio 📻", valor: 3000, peso: 4 },
+                { nombre: "Teléfono 📱", valor: 2000, peso: 1 },
+                { nombre: "Anillo 💍", valor: 2500, peso: 0.5 }
+            ];
+            
+            let solucionGreedy = knapsackGreedy(objetos, capacidadMaxima);
+            
+            document.getElementById("resultado").innerHTML = `
+                <b>Mejor solución:</b> Llevar 
+                ${solucionGreedy.objetosSeleccionados.map(o => o.nombre).join(", ")} 
+                <br> ➡ Valor total: $${solucionGreedy.valorTotal} (Peso total: ${solucionGreedy.pesoTotal}kg, sin superar los 10 kg).
+            `;
+        }
+    </script>
+</body>
+
+</div>
+<a href="index.html" class="back-button">Volver al Inicio</a>
+</div>
+
+</html>
